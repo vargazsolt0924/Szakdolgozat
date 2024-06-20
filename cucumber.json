@@ -1,0 +1,14 @@
+{
+    "default":{
+        "formatOptions": {
+            "snippetInterface": "async-await"
+        },
+        "paths": [
+            "src/test/features/"
+        ],
+        "require": [
+            "src/test/steps/*.js",
+            "src/test/support/*.js"
+        ]
+    }
+}

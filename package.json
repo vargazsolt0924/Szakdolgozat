@@ -1,0 +1,14 @@
+{
+  "name": "szakdolgozat",
+  "version": "1.0.0",
+  "description": "Ezen a repository-n lesz nyomon követhető a kód, ami Szakdolgozathoz szükséges. Egy TestAutomation program lesz, ami https://wearecommunity.io/ oldalt fogja tesztelni. Javascrit, Gherkin és Playwright technológiák használítával.",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.44.1",
+    "@types/node": "^20.14.6"
+  }
+}
