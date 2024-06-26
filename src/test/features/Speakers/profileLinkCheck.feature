@@ -21,5 +21,5 @@ Feature: Check the profile link on Speakers page profile
     And I check the 'profile name' is correct
 
     Examples:
-      | speakerName       |
-      | Laszlo Szikszai   |
+      | speakerName     |
+      | Laszlo Szikszai |

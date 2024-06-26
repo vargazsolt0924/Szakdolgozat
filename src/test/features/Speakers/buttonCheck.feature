@@ -20,7 +20,5 @@ Feature: Check the GitHub button on Speakers page profile
     Then I close this site
 
     Examples:
-      | speakerName       |
-      | Laszlo Szikszai   |
-
-  
+      | speakerName     |
+      | Laszlo Szikszai |
