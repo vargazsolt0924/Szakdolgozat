@@ -2,12 +2,14 @@ Feature: Communities page's video test
 
   Background:
     Given the 'Main' site is opened
-    And I clicked the 'Login' button
-    When I enter '' in the 'email' field
-    And I clicked the 'Continue' button
-    When I enter '' in the 'password' field
-    And I clicked the 'Verify you are human' checkbox
-    Then I clicked the 'Sign in' button
+    And the 'URL' is correct
+    Then I clicked the 'Login' button
+    And I see the Login page
+    Then I enter '' in the 'email' field
+    And I click the 'Continue' button
+    Then I enter '' in the 'password' field
+    And I click the 'Verify you are human' checkbox
+    Then I click the 'Sign in' button
     And I see the 'Main' site
 
   Scenario: Test video's buttons in Communities after sign in

@@ -2,6 +2,7 @@ Feature: Search on the articles page
 
   Background:
     Given the 'Main' site is opened
+    And the 'URL' is correct
 
   Scenario Outline: Search for <cardName> articles
     Given the 'Articles' button is clicked

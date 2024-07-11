@@ -2,10 +2,12 @@ Feature: Videos page's video test
 
   Background:
     Given the 'Main' site is opened
-    And I clicked the 'Login' button
-    When I enter '' in the 'email' field
+    And the 'URL' is correct
+    Then I clicked the 'Login' button
+    And I see the Login page
+    Then I enter '' in the 'email' field
     And I click the 'Continue' button
-    When I enter '' in the 'password' field
+    Then I enter '' in the 'password' field
     And I click the 'Verify you are human' checkbox
     Then I click the 'Sign in' button
     And I see the 'Main' site
