@@ -12,7 +12,6 @@ class ArticlesPage {
         this.languageFilterCheckBox = page.locator('.evnt-filter-item');
         this.checkBoxName = page.locator('.evnt-filter-item .form-check-label');
     }
-
 }
 
 module.exports = ArticlesPage;

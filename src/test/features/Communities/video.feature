@@ -3,7 +3,7 @@ Feature: Communities page's video test
   Background:
     Given the 'Main' site is opened
     And the 'URL' is correct
-    Then I clicked the 'Login' button
+    When I clicked the 'Login' button
     And I see the Login page
     Then I enter '' in the 'email' field
     And I click the 'Continue' button
@@ -19,7 +19,7 @@ Feature: Communities page's video test
     And I open the 'community card'
     Then I click the little 'Videos' button
     And I see the videos
-    Then I click the 'white triangle' button on a video
+    Then I click the 'play' button on a video
     And I click the 'enter full screen' button
     Then I seek to 10 minutes
     And I watch the video for 5 seconds

@@ -3,7 +3,7 @@ Feature: Check date on Events page
   Background:
     Given the 'Main' site is opened
     And the 'URL' is correct
-    Then I clicked the 'Login' button
+    When I clicked the 'Login' button
     And I see the Login page
     Then I enter '' in the 'email' field
     And I click the 'Continue' button
