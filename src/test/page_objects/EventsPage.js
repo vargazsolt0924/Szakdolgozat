@@ -11,7 +11,11 @@ class EventsPage{
         this.languageFilter = page.locator("#filter_language");
         this.languageFilterCheckbox = page.locator(".evnt-filter-item");
         this.eventFormatOption = page.locator("#filter_event_participation_format");
-        this.offlineOnlyCheckbox = page.locator(".evnt-filter-item label[data-value='Offline only']");
+        this.offlineOnlyCheckbox = page.locator("label[data-value='Offline only']");
+        this.eventsSatusDropdown = page.locator("#filter_event_status");
+        this.freeRegistrationCheckbox = page.locator("label[data-value='Free registration is available']");
+        this.todayEventLanguage = page.locator(".evnt-language");
+
     }
 }
 

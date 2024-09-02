@@ -21,9 +21,8 @@ Feature: Check date on Events page
     And I select 'Offline only' checkbox
     Then the 'Events status' filter dropdown is opened
     And I select 'Free registration is available' checkbox
-    When I sort events by 'Popularity'
-    Then I see events
-    And I check the today's events dates
+    Then I see the events
+    And I check the event's languages includes the correct language
 
     Examples:
       | checkboxName |
