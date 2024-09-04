@@ -19,8 +19,6 @@ Feature: Videos page's video test
     And all cards contain the '<videoCardName>' word
     And I click the 'video card'
     Then I click the 'Watch' button
-    And I click the 'subtitles' button
-    And I click the 'English (Auto)' button
     And I click the 'playback rate' button
     And I click the '2x' button
     And I click the 'play' button

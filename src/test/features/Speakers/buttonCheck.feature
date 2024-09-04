@@ -21,7 +21,6 @@ Feature: Check the GitHub button on Speakers page profile
     And I see the GitHub profile page
     And the 'URL' is correct
     And the 'profile name' is correct
-    Then I close this site
 
     Examples:
       | speakerName     |
