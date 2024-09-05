@@ -13,7 +13,7 @@ class MainPage {
     }
 
     async clickArticlesButton() {
-        await this.articleButton.click();
+        await this.articleButton.click(); 
     }
 
     async clickCommunitiesButton() {

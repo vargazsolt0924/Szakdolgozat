@@ -9,3 +9,5 @@ class SpeakersPage {
         this.profileName = page.locator('.evnt-card-name');
     }
 }
+
+module.exports = SpeakersPage;

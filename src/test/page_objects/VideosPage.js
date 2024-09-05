@@ -14,3 +14,5 @@ class VideosPage {
         this.secondLogoutButton = page.locator('#kc-form-buttons');
     }
 }
+
+module.exports = VideosPage;
