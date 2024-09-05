@@ -11,7 +11,7 @@ class CommunitiesPage{
         this.joinButton = page.locator(".evnt-reg-wrapper");
         this.communityCards = page.locator(".evnt-card-wrapper");
         this.littleVideosButton= page.locator(".evnt-sub-header a[href='/communities/idea-pool/videos']");
-        this.playButton = page.locator(".plyr__poster:nth-of-type(1)");
+        this.playButton = page.locator("div.evnt-video-cards-column:first-child iframe");
         this.fullScreenButton = page.locator("");
         this.verifyCheckbox = page.locator("");
         this.verifyCheckbox = page.locator("");

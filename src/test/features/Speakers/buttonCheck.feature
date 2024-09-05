@@ -3,17 +3,9 @@ Feature: Check the GitHub button on Speakers page profile
   Background:
     Given the 'Main' site is opened
     And the 'URL' is correct
-    When I clicked the 'Login' button
-    And I see the Login page
-    Then I enter '' in the 'email' field
-    And I click the 'Continue' button
-    Then I enter '' in the 'password' field
-    And I click the 'Verify you are human' checkbox
-    Then I click the 'Sign in' button
-    And I see the 'Main' site
+    And the 'Speakers' button is clicked
 
-  Scenario Outline: Check a speaker profile's GitHub button after sign in
-    Given the 'Speakers' button is clicked
+  Scenario Outline: Check a speaker profile's GitHub button
     When I search for '<speakerName>'
     Then I click the 'profile card'
     And I see the 'profile site'

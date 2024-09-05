@@ -3,17 +3,9 @@ Feature: Videos page's video test
   Background:
     Given the 'Main' site is opened
     And the 'URL' is correct
-    When I clicked the 'Login' button
-    And I see the Login page
-    Then I enter '' in the 'email' field
-    And I click the 'Continue' button
-    Then I enter '' in the 'password' field
-    And I click the 'Verify you are human' checkbox
-    Then I click the 'Sign in' button
-    And I see the 'Main' site
+    And the 'Videos' button is clicked
 
-  Scenario Outline: Videos page's video's buttons test after sign in
-    Given the 'Videos' button is clicked
+  Scenario Outline: Videos page's video's buttons test
     When I search for '<videoCardName>'
     And I see <videoCardCount> card(s)
     And all cards contain the '<videoCardName>' word
