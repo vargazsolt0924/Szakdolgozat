@@ -3,7 +3,7 @@ Feature: Login check
     Background:
         Given the 'Main' site is opened
     
-    Scenario: Checking the log in to the site
+    Scenario: Checking the log in and the log out on the site
         When the 'Login' button is clicked
         Then the 'Login' page should be opened
         When the 'email' enterd in the field
@@ -13,3 +13,8 @@ Feature: Login check
         And the 'Verify you are human' checkbox is clicked
         And the 'Sign in' button is clicked
         Then the 'Main' site should be opened
+        When the 'profile' dropdown is opened
+        And the 'Logout' button is clicked
+        Then the 'Logout' page should be opened
+        When the 'Logout' button is clicked again
+        Then the 'Main' page should be opened again 

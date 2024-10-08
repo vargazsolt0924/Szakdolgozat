@@ -15,8 +15,3 @@ Feature: Idea Pool community's video test
     When the 'exit full screen' button is clicked
     And the 'Home' button is clicked
     Then the 'Idea pool' community home page should be opened
-    When the 'profile' dropdown is opened
-    And the 'Logout' button is clicked
-    Then the 'Logout' page should be opened
-    When the 'Logout' button is clicked again
-    Then the 'Idea pool' community home page should be opened again 
