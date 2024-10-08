@@ -1,26 +1,22 @@
-Feature: Communities page's video test
+Feature: Idea Pool community's video test
 
   Background:
-    Given the 'Main' site is opened
-    And the 'URL' is correct
-    And the 'Communities' button is clicked
-    
+    Given the 'Idea Pool' page is opened
 
-  Scenario: Test video's buttons in Communities
-    When I search for 'Idea Pool'
-    Then I click the 'join' button
-    And I open the 'community card'
-    Then I click the little 'Videos' button
-    And I see the videos
-    Then I click the 'play' button on a video
-    And I click the 'enter full screen' button
-    Then I seek to 10 minutes
-    And I watch the video for 5 seconds
-    And I click the 'exit full screen' button
-    Then I click the 'Home' button
-    And I click the 'Joined!' button
-    And I click the 'Ok' button
-    Then I open the 'profile' dropdown
-    And I click the 'Logout' button
-    And I click the 'Logout' button again
-    Then I see the 'community's home page'
+  Scenario: Verify that a Community's video can be played
+    When the community's 'Videos' button is clicked
+    Then the community's videos should be listed
+    When the first video is started
+    And the 'play' button on a video is clicked
+    And the "AI-Generated Summary" pop up is closed
+    And the 'enter full screen' button is clicked
+    And seeking to 10 minutes is done
+    Then the video is watched for 5 seconds
+    When the 'exit full screen' button is clicked
+    And the 'Home' button is clicked
+    Then the 'Idea pool' community home page should be opened
+    When the 'profile' dropdown is opened
+    And the 'Logout' button is clicked
+    Then the 'Logout' page should be opened
+    When the 'Logout' button is clicked again
+    Then the 'Idea pool' community home page should be opened again 

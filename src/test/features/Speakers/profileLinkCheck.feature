@@ -2,17 +2,18 @@ Feature: Check the profile link on Speakers page profile
 
   Background:
     Given the 'Main' site is opened
-    And the 'URL' is correct
-    And the 'Speakers' button is clicked
     
   Scenario Outline: Check the link link
-    When I search for '<speakerName>'
-    Then I click the 'profile card'
-    And I see the 'profile site'
-    Then I open the 'share link' dropdown
-    And I copy the 'profile link'
-    Then I open a new site with the 'profile link'
-    And I check the 'profile name' is correct
+    When the 'Speakers' button is clicked in the header
+    Then the 'Speakers' page should be opened
+    When '<speakerName>' is searched
+    And the 'profile card' is clicked
+    Then the 'profile site' should be opened
+    When the 'share link' dropdown is opened
+    And the 'profile link' is copied
+    And the 'profile link' is opened on a new site
+    And the 'profile name' is checked
+    Then the 'profile site' should be opened
 
     Examples:
       | speakerName     |

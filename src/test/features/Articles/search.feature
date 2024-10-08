@@ -2,13 +2,12 @@ Feature: Search on the articles page
 
   Background:
     Given the 'Main' site is opened
-    And the 'URL' is correct
     And the 'Articles' button is clicked
 
   Scenario Outline: Search for <cardName> articles
-    When I search for '<cardName>'
-    Then I see <cardCount> article card
-    And All cards contain the '<cardName>' word
+    When the '<cardName>' is searched
+    Then <cardCount> article card(s) should be listed
+    And the '<cardName>' word is contained on all cards
 
     Examples:
       | cardName  | cardCount |
@@ -19,19 +18,19 @@ Feature: Search on the articles page
       | Android   |         2 |
 
   Scenario Outline: Filter for tag
-    When I narrow the tag to '<checkboxName>'
-    And I click the highlighted checkbox
-    Then I see <cardCount> article card
+    When the tag is narrowed to '<checkboxName>'s
+    And the 'highlighted checkbox' is clicked
+    Then <cardCount> article card(s) should be listed
 
     Examples:
       | checkboxName | cardCount |
       | Banks        |         1 |
 
   Scenario Outline: Select the one language filter
-    Then the 'More Filters' option is opened
-    And the Language Filter Dropdown is opened
-    When I select the '<checkboxName>' checkbox
-    Then I see <cardCount> article card
+    When the 'More Filters' option is opened
+    And the 'Language Filter' Dropdown is opened
+    And the '<checkboxName>' checkbox is selected
+    Then <cardCount> article card(s) should be listed
 
     Examples:
       | checkboxName | cardCount |
