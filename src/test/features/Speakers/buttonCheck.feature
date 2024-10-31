@@ -8,11 +8,11 @@ Feature: Check the GitHub button on Speakers page profile
     Then the 'Speakers' page should be opened
     When the '<speakerName>' is searched
     And the 'profile card' is clicked
-    Then the 'profile site' should be opened
+    Then the 'profile page' should be opened
     When the 'GitHub button' is clicked
-    And the 'URL' is checked
-    And the 'profile name' is checked
     Then the 'GitHub profile' page should be opened
+    And the 'URL' is should be checked
+    And the 'profile name' is should be checked
    
     
     Examples:
