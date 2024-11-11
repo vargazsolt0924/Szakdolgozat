@@ -17,7 +17,8 @@ Feature: Videos page's video test
     When the 'playback rate' button is clicked
     And the '2x' button is clicked
     And the 'play' button is clicked
-    And the 'close' button is clicked
+    Then the 'video' should be played at double speed
+    When the 'close' button is clicked
     Then the 'video' page should be opened again
 
     Examples:
