@@ -9,7 +9,7 @@ Feature: Login check
         When the 'email' enterd in the field
         And the 'Continue' button is clicked
         Then the 'Login' page should be opened again
-        When the 'password' enterd in the field
+        When the 'password' entered in the field
         And the 'Verify you are human' checkbox is clicked
         And the 'Sign in' button is clicked
         Then the 'Main' site should be opened
