@@ -3,12 +3,18 @@
   "version": "1.0.0",
   "description": "Ezen a repository-n lesz nyomon követhető a kód, ami Szakdolgozathoz szükséges. Egy TestAutomation program lesz, ami https://wearecommunity.io/ oldalt fogja tesztelni. Javascrit, Gherkin és Playwright technológiák használítával.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "cucumber-js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@cucumber/cucumber": "^11.1.0",
     "@playwright/test": "^1.44.1",
     "@types/node": "^20.14.6"
+  },
+  "dependencies": {
+    "playwright": "^1.44.1"
   }
 }

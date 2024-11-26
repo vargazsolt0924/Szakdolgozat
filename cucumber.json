@@ -7,7 +7,7 @@
             "src/test/features/**/*.feature"
         ],
         "require": [
-            "src/test/steps/*.js",
+            "src/test/step_definitions/**/*.js",
             "src/test/support/*.js"
         ]
     }
