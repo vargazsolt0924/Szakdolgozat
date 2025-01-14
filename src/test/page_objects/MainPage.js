@@ -21,24 +21,8 @@ class MainPage {
         await this.page.goto('https://wearecommunity.io/');
     }
 
-    async clickArticlesButton() {
-        await this.articleButton.click(); 
-    }
-
-    async clickCommunitiesButton() {
-        await this.communitiesButton.click();
-    }
-
-    async clickEventsButton() {
-        await this.eventsButton.click();
-    }
-
-    async clickSpeakersButton() {
-        await this.speakersButton.click();
-    }
-
-    async clickVideosButton() {
-        await this.videosButton.click();
+    async navigateToSubPage(subPageName) {
+        await this[subPageName].click(); 
     }
 }
 
