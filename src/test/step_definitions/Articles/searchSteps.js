@@ -1,6 +1,7 @@
-const { Given, When, Then, BeforeStep } = require('@cucumber/cucumber');
+const { Given, When, Then, BeforeStep, world, setDefaultTimeout } = require('@cucumber/cucumber');
 const ArticlesPage = require('../../page_objects/ArticlesPage.js');
 const  generalSteps = require('../generalSteps.js'); 
+//setDefaultTimeout(parseInt(process.env.DEFAULT_TIMEOUT) || 60000);
 
 let articlesPage;
 
@@ -12,39 +13,33 @@ When('I search for {string}', async (input) => {
     await articlesPage.searchForInput(input);
 });
 
-Then('{int} article card(s) should be listed', async (cardCount) => {
-    const cards = await articlesPage.getArticleCards();
-    if (cards.length !== cardCount) {
-        throw new Error(`Expected ${cardCount} cards, but found ${cards.length}`);
-    }
+Then('I see {int} article card', async (expectedCardCount) => {
+    await articlesPage.waitForArticleCardsCount(expectedCardCount);
 });
 
-Then('the {string} word is contained on all cards', async (cardName) => {
-    const cards = await articlesPage.getArticleCards();
-    for (const card of cards) {
-        const cardText = await card.textContent();
-        if (!cardText.includes(cardName)) {
-            throw new Error(`The card does not contain the word: ${cardName}`);
-        }
-    }
+Then('All cards contain the {string} word', async (word) => {
+    await articlesPage.verifyAllCardsContainWord(word);
 });
 
-When('the tag is narrowed to {string}', async (checkboxName) => {
-    await articlesPage.filterByTag(checkboxName);
+When('I narrow the tag to {string}', async (tag) => {
+    await articlesPage.clickTagFilter();
+    await articlesPage.setTagFilterInput(tag);
 });
 
-When('the \"highlighted checkbox\" is clicked', async () => {
+When('I click the highlighted checkbox', async () => {
     await articlesPage.clickHighlightedCheckbox();
 });
 
-When('the \"More Filters\" option is opened', async () => {
-    await articlesPage.openMoreFilters();
+Then('the "More Filters" option is opened', async () => {
+    await articlesPage.clickMoreFiltersOption();
+    await articlesPage.waitForMoreFiltersOption();
 });
 
-When('the \"Language Filter\" Dropdown is opened', async () => {
-    await articlesPage.openLanguageFilterDropdown();
+Then('the Language Filter Dropdown is opened', async () => {
+    await articlesPage.clickLanguageFilter();
+    await articlesPage.waitForLanguageFilterDropdown();
 });
 
-When('the {string} checkbox is selected', async (checkboxName) => {
-    await articlesPage.selectLanguageCheckbox(checkboxName);
+When('the{string} checkbox is selected', async (language) => {
+    await articlesPage.selectLanguageCheckbox(language);
 });

@@ -10,7 +10,7 @@ class MainPage {
         this.profileDropdown = page.locator('#navbarDropdown');
         this.logoutButton = page.locator('.dropdown-item.logout-icon');
         this.secondLogoutButton = page.locator('#kc-form-buttons');
-        this.articleButton = page.locator('li.nav-item.articles-icon a[href="/articles"]');
+        this.articlesButton = page.locator('li.nav-item.articles-icon a[href="/articles"]');
         this.communitiesButton = page.locator('li.nav-item.communities-icon a[href="/communities"]');
         this.eventsButton = page.locator('li.nav-item.events-icon a[href="/events"]');
         this.speakersButton = page.locator('li.nav-item.speakers-icon a[href="/speakers"]');
