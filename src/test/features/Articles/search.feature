@@ -18,7 +18,7 @@ Feature: Search on the articles page
       | Android   |         2 |
 
   Scenario Outline: Filter for tag
-    When the tag is narrowed to '<checkboxName>'s
+    When the tag is narrowed to '<checkboxName>'
     And the 'highlighted checkbox' is clicked
     Then <cardCount> article card(s) should be listed
 

@@ -11,10 +11,10 @@ Feature: Check the profile link on Speakers page profile
     Then the 'profile site' should be opened
     When the 'share link' dropdown is opened
     And the 'profile link' is copied
-    And the 'profile link' is opened on a new site
+    And the 'profile link' is opened on a new tab
     Then the 'profile site' should be opened
     And the 'profile name' is should be '<speakerProfileName>'
 
     Examples:
       | speakerName     | speakerProfileName |
-      | Laszlo Szikszai | Laszlo Szikszai   |
+      | Laszlo Szikszai | Laszlo Szikszai    |

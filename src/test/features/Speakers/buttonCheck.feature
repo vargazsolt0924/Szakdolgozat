@@ -12,9 +12,9 @@ Feature: Check the GitHub button on Speakers page profile
     When the 'GitHub button' is clicked
     Then the 'GitHub profile' page should be opened
     And the 'URL' is should be checked
-     And the 'profile name' is should be '<githubProfileName>'
+    And the 'profile name' is should be '<githubProfileName>'
    
     
     Examples:
-      | speakerName     | githubProfileName |
+      | speakerName     | githubProfileName | 
       | Laszlo Szikszai | Laszlo Szikszai   |
