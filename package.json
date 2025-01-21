@@ -4,15 +4,21 @@
   "description": "Ezen a repository-n lesz nyomon követhető a kód, ami Szakdolgozathoz szükséges. Egy TestAutomation program lesz, ami https://wearecommunity.io/ oldalt fogja tesztelni. Javascrit, Gherkin és Playwright technológiák használítával.",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js"
+    "test": "cucumber-js",
+    "lint": "eslint . --fix"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@cucumber/cucumber": "^11.1.0",
+    "@eslint/js": "^9.18.0",
     "@playwright/test": "^1.44.1",
-    "@types/node": "^20.14.6"
+    "@types/node": "^20.14.6",
+    "eslint": "^9.18.0",
+    "eslint-plugin-prettier": "^5.2.2",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2"
   },
   "dependencies": {
     "20": "^3.1.9",

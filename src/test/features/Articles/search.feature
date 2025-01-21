@@ -13,8 +13,8 @@ Feature: Search on the articles page
       | cardName  | cardCount |
       | Idea Pool |         6 |
       | Apple     |         1 |
-      | Quiz      |         1 |
-      | Bank      |         4 |
+      | Quiz      |         2 |
+      | Bank      |         5 |
       | Android   |         2 |
 
   Scenario Outline: Filter for tag
@@ -26,7 +26,7 @@ Feature: Search on the articles page
       | checkboxName | cardCount |
       | Banks        |         1 |
 
-  Scenario Outline: Select the one language filter
+  Scenario Outline: Select one language filter
     When the 'More Filters' option is opened
     And the 'Language Filter' Dropdown is opened
     And the '<checkboxName>' checkbox is selected
