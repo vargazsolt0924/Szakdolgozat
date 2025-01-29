@@ -28,7 +28,7 @@ Feature: Search on the articles page
 
   Scenario Outline: Select one language filter
     When the 'More Filters' option is opened
-    And the 'Language Filter' Dropdown is opened
+    And the 'Language Filter' dropdown is opened
     And the '<checkboxName>' checkbox is selected
     Then <cardCount> article card(s) should be listed
 

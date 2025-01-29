@@ -10,10 +10,43 @@ class CommunitiesPage {
     this.littleVideosButton = page.locator(
       '.evnt-sub-header a[href="/communities/idea-pool/videos"]'
     );
-    this.playButton = page.locator(
+    this.firstVideo = page.locator(
       'div.evnt-video-cards-column:first-child iframe'
     );
-    this.seekBar = page.locator('#plyr-seek-8957');
+    this.seekBar = page.locator('#plyr-seek-2630');
+    this.currentTiem = page
+      .locator('div.plyr__time.plyr__time--current')
+      .nth(12);
+    this.popUpCloseButton = page.locator('[data-name="close"]');
+    this.homeButton = page.locator(
+      '.evnt-sub-header a[href="/communities/idea-pool"]'
+    );
+  }
+
+  async open() {
+    await this.page.goto('https://wearecommunity.io/communities/idea-pool/');
+  }
+
+  async clickVideosButton() {
+    await this.littleVideosButton.click();
+  }
+
+  async startFirstVideo() {
+    await this.firstVideo.click();
+  }
+
+  async enterAndExitFullscreen() {
+    await this.firstVideo.dblclick();
+  }
+
+  async closePopUp() {
+    await this.popUpCloseButton.click();
+  }
+
+  async seekTo10Minutes() {}
+
+  async clickHomeButton() {
+    await this.homeButton.click();
   }
 }
 

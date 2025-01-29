@@ -24,16 +24,20 @@ When('the tag is narrowed to {string}', async (tag) => {
   await articlesPage.setTagFilterInput(tag);
 });
 
-When('the {string} is clicked', async () => {
-  await articlesPage.clickHighlightedCheckbox();
+When('the {string} is clicked', async (checkbox) => {
+  if (checkbox === 'highlighted checkbox') {
+    await articlesPage.clickHighlightedCheckbox();
+  }
 });
 
-Then('the {string} option is opened', async () => {
-  await articlesPage.clickMoreFiltersOption();
-  await articlesPage.waitForMoreFiltersOption();
+When('the {string} option is opened', async (option) => {
+  if (option === 'More Filters') {
+    await articlesPage.clickMoreFiltersOption();
+    await articlesPage.waitForMoreFiltersOption();
+  }
 });
 
-Then('the {string} Dropdown is opened', async () => {
+Then('the {string} dropdown is opened', async () => {
   await articlesPage.clickLanguageFilter();
   await articlesPage.waitForLanguageFilterDropdown();
 });

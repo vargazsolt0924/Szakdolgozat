@@ -25,12 +25,18 @@ class ArticlesPage {
     await this.searchInput.fill(input);
     await this.searchInput.press('Enter');
   }
-
   async waitForArticleCardsCount(expectedCardCount) {
-    await this.page.waitForTimeout(2000);
-    const currentCardCount = await this.articleCards.all();
-    console.log(currentCardCount);
-    expect(currentCardCount.length).toBe(expectedCardCount);
+    await expect
+      .poll(
+        async () => {
+          const currentCardCount = await this.articleCards.all();
+          return currentCardCount.length;
+        },
+        {
+          timeout: 10000,
+        }
+      )
+      .toBe(expectedCardCount);
   }
 
   async verifyAllCardsContainWord(word) {
@@ -41,11 +47,7 @@ class ArticlesPage {
   }
 
   async clickTagFilter() {
-    try {
-      await this.tagFilter.click();
-    } catch (error) {
-      console.error('Failed to click tag filter:', error);
-    }
+    await this.tagFilter.click();
   }
 
   async setTagFilterInput(tag) {
@@ -53,7 +55,7 @@ class ArticlesPage {
   }
 
   async clickHighlightedCheckbox() {
-    await this.tagFilterHighlightedItem.click();
+    await this.tagFilterHighlightedItem.first().click();
   }
 
   async clickMoreFiltersOption() {
