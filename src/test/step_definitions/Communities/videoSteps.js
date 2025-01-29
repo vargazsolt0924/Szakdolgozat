@@ -11,8 +11,12 @@ Given('the {string} page is opened', async (string) => {
   await communitiesPage.open();
 });
 
-When(`the community's {string} button is clicked`, async (string) => {
-  await communitiesPage.clickVideosButton();
+When(`the community's {string} button is clicked`, async (buttonName) => {
+  if (buttonName === 'Videos') {
+    await communitiesPage.clickVideosButton();
+  } else {
+    await communitiesPage.clickHomeButton();
+  }
 });
 
 Then(`the community's videos should be listed`, async () => {});
@@ -37,10 +41,6 @@ Then('the current time should be changed to 10:00', async () => {});
 
 When('the video is taken out of {string}', async () => {
   await communitiesPage.enterAndExitFullscreen();
-});
-
-When('the {string} button is clicked', async () => {
-  await communitiesPage.clickHomeButton();
 });
 
 Then('the {string} community home page should be opened', async () => {});
