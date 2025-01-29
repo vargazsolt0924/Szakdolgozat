@@ -12,5 +12,5 @@ Feature: Idea Pool community's video test
     And seeking to 10 minutes is done
     Then the current time should be changed to 10:00
     When the video is taken out of 'fullscreen'
-    And the 'Home' button is clicked
+    And the community's 'Home' button is clicked
     Then the 'Idea pool' community home page should be opened
