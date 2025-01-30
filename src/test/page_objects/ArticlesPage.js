@@ -15,7 +15,7 @@ class ArticlesPage {
     this.tagFilter = page.locator('#filter_tag');
     this.tagFilterInput = page.locator('.evnt-filter-menu.show .evnt-search');
     this.tagFilterHighlightedItem = page.locator('.highlight-text');
-    this.moreFiltersOption = page.locator('evnt-toggle-filters-button btn');
+    this.moreFiltersOption = page.locator('div.evnt-toggle-filters-button.btn');
     this.languageFilter = page.locator('#filter_language');
     this.languageFilterCheckBox = page.locator('.evnt-filter-item');
     this.checkBoxName = page.locator('.evnt-filter-item .form-check-label');
@@ -62,16 +62,12 @@ class ArticlesPage {
     await this.moreFiltersOption.click();
   }
 
-  async waitForMoreFiltersOption() {
-    await this.page.waitForSelector(this.moreFiltersOption);
-  }
-
   async clickLanguageFilter() {
     await this.languageFilter.click();
   }
 
   async waitForLanguageFilterDropdown() {
-    await this.page.waitForSelector(this.languageFilterCheckBox);
+    await this.languageFilterCheckBox.first().waitFor({ state: 'visible' });
   }
 
   async selectLanguageCheckbox(language) {

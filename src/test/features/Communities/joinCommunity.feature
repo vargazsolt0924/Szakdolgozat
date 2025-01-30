@@ -11,4 +11,4 @@ Feature: Communities page's test
         And the 'Idea Pool' community card is clicked
         Then the 'Idea Pool' community should be opened
         When the 'Join' button is clicked
-        Then the 'Join' button's label should change to Joined!
+        Then the 'Join' button's label should be changed to Joined!

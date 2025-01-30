@@ -3,7 +3,7 @@
     "formatOptions": {
       "snippetInterface": "async-await"
     },
-    "paths": ["src/test/features/**/search.feature"],
+    "paths": ["src/test/features/**/loginLogout.feature"],
     "require": ["src/test/step_definitions/**/*.js", "src/test/support/*.js"]
   }
 }
