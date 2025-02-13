@@ -2,7 +2,7 @@ Feature: Search on the articles page
 
   Background:
     Given the 'Main' site is opened
-    And the 'Articles' button is clicked
+    And the 'Articles' button is clicked in the header
 
   Scenario Outline: Search for <cardName> articles
     When the '<cardName>' is searched
