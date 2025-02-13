@@ -2,6 +2,7 @@ Feature: Idea Pool community's video test
 
   Background:
     Given the 'Idea Pool' page is opened
+    And the test user is logged in
 
   Scenario: Verify that a Community's video can be played
     When the community's 'Videos' button is clicked
