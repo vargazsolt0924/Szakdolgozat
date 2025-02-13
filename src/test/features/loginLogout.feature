@@ -10,7 +10,6 @@ Feature: Login check
         And the 'Continue' button is clicked
         Then the 'Login' page should be opened again
         When the 'password' entered in the field
-        #And the 'Verify you are human' checkbox is clicked
         And the 'Sign in' button is clicked
         Then the 'Main' page should be opened
         When the 'profile' dropdown is opened in the top right corner 

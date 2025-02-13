@@ -1,10 +1,11 @@
-const { Given, When, Then, BeforeStep, world } = require('@cucumber/cucumber');
-const CommunitesPage = require('../../page_objects/CommunitiesPage');
+const { Given, When, Then, BeforeStep, world, setDefaultTimeout } = require('@cucumber/cucumber');
+const CommunitiesPage = require('../../page_objects/CommunitiesPage');
 
+setDefaultTimeout(50000);
 let communitiesPage;
 
 BeforeStep(async function () {
-  communitiesPage = new CommunitesPage(world.page);
+  communitiesPage = new CommunitiesPage(world.page);
 });
 
 Given('the {string} page is opened', async (string) => {

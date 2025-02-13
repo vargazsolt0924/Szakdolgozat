@@ -1,3 +1,5 @@
+const { config } = require('dotenv');
+config();
 class MainPage {
   constructor(page) {
     this.page = page;
@@ -10,21 +12,11 @@ class MainPage {
     this.profileDropdown = page.locator('#navbarDropdown');
     this.logoutButton = page.locator('a.dropdown-item.logout-icon');
     this.secondLogoutButton = page.locator('#kc-form-buttons');
-    this.articlesButton = page.locator(
-      'li.nav-item.articles-icon a[href="/articles"]'
-    );
-    this.communitiesButton = page.locator(
-      'li.nav-item.communities-icon a[href="/communities"]'
-    );
-    this.eventsButton = page.locator(
-      'li.nav-item.events-icon a[href="/events"]'
-    );
-    this.speakersButton = page.locator(
-      'li.nav-item.speakers-icon a[href="/speakers"]'
-    );
-    this.videosButton = page.locator(
-      'li.nav-item.talks-library-icon a[href="/videos"]'
-    );
+    this.articlesButton = page.locator('li.nav-item.articles-icon a[href="/articles"]');
+    this.communitiesButton = page.locator('li.nav-item.communities-icon a[href="/communities"]');
+    this.eventsButton = page.locator('li.nav-item.events-icon a[href="/events"]');
+    this.speakersButton = page.locator('li.nav-item.speakers-icon a[href="/speakers"]');
+    this.videosButton = page.locator('li.nav-item.talks-library-icon a[href="/videos"]');
   }
 
   async open() {
@@ -40,11 +32,11 @@ class MainPage {
   }
 
   async enterEmail() {
-    await this.emailField.fill('');
+    await this.emailField.fill(process.env.EMAIL);
   }
 
   async enterPassword() {
-    await this.passwordField.fill('');
+    await this.passwordField.fill(process.env.PASSWORD);
     await this.passwordField.press('Enter');
   }
 
