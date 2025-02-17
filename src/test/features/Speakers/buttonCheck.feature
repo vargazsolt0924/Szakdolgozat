@@ -17,4 +17,4 @@ Feature: Check the GitHub button on Speakers page profile
     
     Examples:
       | speakerName     | githubProfileName | 
-      | Laszlo Szikszai | Laszlo Szikszai   |
+      | Laszlo Szikszai | Szikszai László   |
