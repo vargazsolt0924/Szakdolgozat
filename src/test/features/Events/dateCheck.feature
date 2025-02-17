@@ -3,15 +3,11 @@ Feature: Check calendar dates on Events page cards
   Background:
     Given the 'Main' site is opened
 
-  Scenario: Check event cards dates after the calendar filter is setted
+  Scenario: After setting the calendar filter, check the dates on the event cards
     When the 'Events' button is clicked in the header
     Then the 'Events' page should be opened
     When the 'More Filters' option is clicked
-    Then more filters should be listed
-    When the 'Date from calendar' is clicked
-    And a from date is clicked
-    Then the cards with this date should be listed
-    When the 'Date till calendar' is clicked
-    And a till date is clicked 
-    Then beetween this two dates the event cards should be listed
-    And all the listed cards date should be checked
+    Then the more filters should be listed
+    When the date from is picked from the 'Date from calendar'
+    And the till date is picked from the 'Date till calendar'
+    Then check all the listed cards date should be between this two dates
