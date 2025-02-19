@@ -15,8 +15,14 @@ Then('the more filters should be listed', async () => {
   await eventsPage.verifyMoreFiltersVisible();
 });
 
-When('the date from is picked from the {string}', async (string) => {});
+When('the date from is picked from the {string}', async (string) => {
+  await eventsPage.pickDateFrom();
+});
 
-When('the till date is picked from the {string}', async (string) => {});
+When('the till date is picked from the {string}', async (string) => {
+  await eventsPage.pickDateTill();
+});
 
-Then('check all the listed cards date should be between this two dates', async () => {});
+Then('check all the listed cards date should be include these two dates range', async () => {
+  await eventsPage.verifyListedEventsInRange();
+});

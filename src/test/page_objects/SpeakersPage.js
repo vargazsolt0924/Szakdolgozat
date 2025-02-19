@@ -1,12 +1,13 @@
-const expect = require('@playwright/test').expect;
+const { expect } = require('@playwright/test');
 
 class SpeakersPage {
   constructor(page) {
     this.page = page;
+    this.githubPage = null;
     this.searchInput = page.locator('.evnt-search-filter .form-control.evnt-search');
     this.profileCard = page.locator('a[href="/users/laszlo-szikszai"]');
     this.githubButton = page.locator('.evnt-social-container a[href="https://github.com/szikszail"]');
-    this.githubProfileName = page.locator('h1.vcard-names  span.p-name.vcard-fullname.d-block.overflow-hidden');
+    this.githubProfileName = page.locator('h1.vcard-names span.p-name.vcard-fullname.d-block.overflow-hidden');
     this.shareLinkDropdown = page.locator('share-profile-button show');
     this.copyButton = page.locator('div.Share-module__popoverInputWrapper__3hKYi');
     this.profileName = page.locator('.evnt-card-name');
@@ -22,13 +23,18 @@ class SpeakersPage {
   }
 
   async clickGithubButton() {
-    const [newPage] = await Promise.all([this.page.context().waitForEvent('page'), this.githubButton.click()]);
-    await newPage.waitForLoadState('load');
-    this.page = newPage;
+    await this.githubButton.click();
+
+    this.githubPage = await this.page.context().waitForEvent('page');
+
+    await this.githubPage.waitForLoadState();
   }
 
   async checkProfileName(expectedName) {
-    const actualName = await this.githubProfileName.textContent();
+    if (!this.githubPage) {
+      throw new Error('GitHub oldal nem lett megnyitva!');
+    }
+    const actualName = await this.githubPage.locator('h1.vcard-names span.p-name.vcard-fullname.d-block.overflow-hidden').textContent();
     expect(actualName.trim()).toBe(expectedName);
   }
 
