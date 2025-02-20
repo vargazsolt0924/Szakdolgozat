@@ -8,8 +8,13 @@ BeforeStep(async function () {
 });
 
 When('the {string} dropdown is clicked', async (string) => {
-  speakersPage.clickShareLinkDropdown();
+  await speakersPage.clickShareLinkDropdown();
 });
 
-When('the {string} is copied', async (string) => {});
-When('the {string} is opened on a new tab', async (string) => {});
+When('the {string} field is clicked', async (string) => {
+  await speakersPage.clickInputField();
+});
+
+Then(`the clipboard's content is should be included the right link`, async () => {
+  await speakersPage.checkProfileLink('https://wearecommunity.io/users/laszlo-szikszai');
+});

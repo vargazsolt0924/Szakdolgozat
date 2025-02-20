@@ -23,6 +23,6 @@ When('the till date is picked from the {string}', async (string) => {
   await eventsPage.pickDateTill();
 });
 
-Then('check all the listed cards date should be include these two dates range', async () => {
-  await eventsPage.verifyListedEventsInRange();
+Then('check all the listed cards date should be included these two dates range', async () => {
+  await eventsPage.checkListedEvents();
 });

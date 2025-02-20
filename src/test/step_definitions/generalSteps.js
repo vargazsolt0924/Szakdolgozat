@@ -20,13 +20,12 @@ Given('the test user is logged in', async () => {
   await mainPage.clickSignInButton();
 });
 
-When(/the '(Articles|Events|Communities|Speakers|Videos)' button is clicked in the header/, async (subPageName) => {
+When(/the '(Articles|Events|Communities|Speakers)' button is clicked in the header/, async (subPageName) => {
   const subPageNameMapping = {
     Articles: 'articlesButton',
     Events: 'eventsButton',
     Communities: 'communitiesButton',
     Speakers: 'speakersButton',
-    Videos: 'videosButton',
   };
   await mainPage.navigateToSubPage(subPageNameMapping[subPageName]);
 });

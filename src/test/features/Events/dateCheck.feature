@@ -10,4 +10,4 @@ Feature: Check calendar dates on Events page cards
     Then the more filters should be listed
     When the date from is picked from the 'Date from calendar'
     And the till date is picked from the 'Date till calendar'
-    Then check all the listed cards date should be include these two dates range
+    Then check all the listed cards date should be included these two dates range
