@@ -31,6 +31,10 @@ class EventsPage {
     const tillDate = format(addDays(new Date(), 2), 'd');
     await this.dateTillCalendar.click();
     await this.calendarDay.locator(`text="${tillDate}"`).click();
+    await this.page.waitForFunction((expectedDate) => {
+      const elements = document.querySelectorAll('p[aria-label="date"]');
+      return Array.from(elements).some((el) => el.textContent.includes(expectedDate));
+    }, tillDate);
   }
 
   async checkListedEvents() {
