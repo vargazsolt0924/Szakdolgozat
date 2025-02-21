@@ -19,6 +19,6 @@ When('the {string} icon is clicked', async (string) => {
   await speakersPage.clickGithubButton();
 });
 
-Then('the profile name is should be {string}', async (string) => {
+Then('the GitHub profile name is should be {string}', async (string) => {
   await speakersPage.checkProfileName(string);
 });

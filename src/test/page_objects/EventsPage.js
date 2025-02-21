@@ -33,31 +33,43 @@ class EventsPage {
     await this.calendarDay.locator(`text="${tillDate}"`).click();
   }
 
-  async verifyListedEventsInRange() {
+  async checkListedEvents() {
     const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    const selectedDates = [];
 
-    const tillDate = addDays(today, 2);
-    tillDate.setHours(23, 59, 59, 999);
+    for (let i = 0; i < 3; i++) {
+      selectedDates.push(today.getDate() + i);
+    }
 
     const dates = await this.cardDate.allTextContents();
 
     for (const dateText of dates) {
-      let eventStart, eventEnd;
+      let eventDates = [];
 
       if (dateText.includes('-')) {
         const [startStr, endStr] = dateText.split(' - ');
-        eventStart = new Date(`${startStr.trim()} ${today.getFullYear()}`);
-        eventEnd = new Date(`${endStr.trim()} ${today.getFullYear()}`);
+        const startDay = parseInt(startStr.trim(), 10);
+        const endDay = parseInt(endStr.trim(), 10);
+
+        for (let day = startDay; day <= endDay; day++) {
+          eventDates.push(day);
+        }
       } else {
-        eventStart = new Date(dateText);
-        eventEnd = eventStart;
+        const eventDay = parseInt(dateText.trim(), 10);
+        eventDates.push(eventDay);
       }
 
-      eventStart.setHours(0, 0, 0, 0);
-      eventEnd.setHours(23, 59, 59, 999);
+      let isValid = false;
+      for (const selectedDate of selectedDates) {
+        for (const eventDate of eventDates) {
+          if (selectedDate === eventDate) {
+            isValid = true;
+            break;
+          }
+        }
+      }
 
-      if (eventEnd < today || eventStart > tillDate) {
+      if (!isValid) {
         throw new Error(`Event date ${dateText} is out of range`);
       }
     }

@@ -12,7 +12,7 @@ Feature: Check the GitHub button on Speakers page profile
     Then the 'profile' page should be opened
     When the 'GitHub' icon is clicked
     Then the 'GitHub profile' page should be opened
-    And the profile name is should be '<githubProfileName>'
+    And the GitHub profile name is should be '<githubProfileName>'
    
     
     Examples:

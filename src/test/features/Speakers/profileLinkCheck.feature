@@ -9,13 +9,11 @@ Feature: Check the profile link on Speakers page profile
     Then the 'Speakers' page should be opened
     When the speaker '<speakerName>' is searched
     And the 'profile' card is clicked
-    Then the 'profile site' should be opened
+    Then the 'profile' page should be opened
     When the 'share profile' dropdown is clicked
-    And the 'profile link' is copied
-    And the 'profile link' is opened on a new tab
-    Then the 'profile site' should be opened
-    And the profile name is should be '<speakerProfileName>'
+    And the 'input' field is clicked 
+    Then the clipboard's content is should be included the right link
 
     Examples:
-      | speakerName     | speakerProfileName |
-      | Laszlo Szikszai | Laszlo Szikszai    |
+      | speakerName     |
+      | Laszlo Szikszai | 

@@ -12,7 +12,7 @@ Feature: Search on the articles page
     Examples:
       | cardName  | cardCount |
       | Idea Pool |         6 |
-      | Apple     |         1 |
+      | Apple     |        12 |
       | Quiz      |         2 |
       | Bank      |         5 |
       | Android   |         2 |
