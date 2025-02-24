@@ -24,9 +24,11 @@ class SpeakersPage {
   }
 
   async clickGithubButton() {
-    const [newPage] = await Promise.all([this.page.context().waitForEvent('page'), this.githubButton.click()]);
-    await newPage.waitForLoadState();
-    this.githubPage = newPage;
+    await this.githubButton.click();
+
+    this.githubPage = await this.page.context().waitForEvent('page');
+
+    await this.githubPage.waitForLoadState();
   }
 
   async checkProfileName(expectedName) {
