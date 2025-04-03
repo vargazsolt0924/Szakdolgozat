@@ -18,11 +18,6 @@ class ArticlesPage {
   async searchForInput(input) {
     await this.searchInput.fill(input);
     await this.searchInput.press('Enter');
-    if (input == 'Apple') {
-      await this.page.evaluate(() => {
-        window.scrollBy(0, 500);
-      });
-    }
   }
 
   async waitForArticleCardsCount(expectedCardCount) {
