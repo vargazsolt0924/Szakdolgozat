@@ -5,7 +5,7 @@ class CommunitiesPage {
     this.page = page;
     this.searchInput = page.locator('[placeholder="Search by Title or Tags"]');
     this.communityCards = page.locator('.evnt-card-wrapper');
-    this.communityCardsText = page.locator('[data-tooltip-id=community-card-tooltip_418]');
+    this.ideaPoolCommunityCardText = page.locator('[data-tooltip-id=community-card-tooltip_418]');
     this.joinButton = page.locator('.Button-module__button__Oq73a.Button-module__medium__2vqKz.Button-module__grass__LyAs-.subscribe.reg-button');
     this.joinedButton = page.locator('.Button-module__button__Oq73a.Button-module__medium__2vqKz.unsubscribe.reg-button');
     this.okButton = page.locator('button.Button-module__button__Oq73a.Button-module__small__3KYbo.Button-module__fire__3Aw4y');
@@ -21,7 +21,7 @@ class CommunitiesPage {
   }
 
   async clickCommunityCard() {
-    const ideaPoolCard = this.communityCardsText;
+    const ideaPoolCard = this.ideaPoolCommunityCardText;
     await ideaPoolCard.waitFor({ state: 'visible' });
     await ideaPoolCard.click();
   }

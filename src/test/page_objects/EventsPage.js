@@ -1,4 +1,4 @@
-const { format, addDays } = require('date-fns');
+const { format, parse, isWithinInterval } = require('date-fns');
 
 class EventsPage {
   constructor(page) {
@@ -21,61 +21,39 @@ class EventsPage {
     }
   }
 
-  async pickDateFrom() {
+  async pickTodayDate() {
     const today = format(new Date(), 'd');
     await this.dateFromCalendar.click();
-    await this.calendarDay.locator(`text="${today}"`).click();
-  }
-
-  async pickDateTill() {
-    const tillDate = format(addDays(new Date(), 2), 'd');
+    await this.calendarDay.locator(`text="${today}"`).first().click();
     await this.dateTillCalendar.click();
-    await this.calendarDay.locator(`text="${tillDate}"`).click();
-    await this.page.waitForFunction((expectedDate) => {
-      const elements = document.querySelectorAll('p[aria-label="date"]');
-      return Array.from(elements).some((el) => el.textContent.includes(expectedDate));
-    }, tillDate);
+    await this.calendarDay.locator(`text="${today}"`).first().click();
   }
 
-  async checkListedEvents() {
+  async checkListedEventsForToday() {
     const today = new Date();
-    const selectedDates = [];
-
-    for (let i = 0; i < 3; i++) {
-      selectedDates.push(today.getDate() + i);
-    }
+    const todayFormatted = format(today, 'd MMM yyyy');
 
     const dates = await this.cardDate.allTextContents();
 
-    for (const dateText of dates) {
-      let eventDates = [];
+    const eventExists = dates.some((dateText) => {
+      const trimmedDateText = dateText.trim();
 
-      if (dateText.includes('-')) {
-        const [startStr, endStr] = dateText.split(' - ');
-        const startDay = parseInt(startStr.trim(), 10);
-        const endDay = parseInt(endStr.trim(), 10);
+      if (trimmedDateText.includes('-')) {
+        const [startStr, endStr] = trimmedDateText.split(' - ');
+        const startDate = parse(`${startStr.trim()} ${today.getFullYear()}`, 'd MMM yyyy', today);
+        const endDate = parse(endStr.trim(), 'd MMM yyyy', today);
 
-        for (let day = startDay; day <= endDay; day++) {
-          eventDates.push(day);
-        }
-      } else {
-        const eventDay = parseInt(dateText.trim(), 10);
-        eventDates.push(eventDay);
+        if (endDate < startDate) endDate.setMonth(endDate.getMonth() + 1);
+
+        return isWithinInterval(today, { start: startDate, end: endDate });
       }
 
-      let isValid = false;
-      for (const selectedDate of selectedDates) {
-        for (const eventDate of eventDates) {
-          if (selectedDate === eventDate) {
-            isValid = true;
-            break;
-          }
-        }
-      }
+      const date = parse(trimmedDateText, 'd MMM yyyy', today);
+      return format(date, 'd MMM yyyy') === todayFormatted;
+    });
 
-      if (!isValid) {
-        throw new Error(`Event date ${dateText} is out of range`);
-      }
+    if (!eventExists) {
+      throw new Error(`Event date does not include today's date`);
     }
   }
 }

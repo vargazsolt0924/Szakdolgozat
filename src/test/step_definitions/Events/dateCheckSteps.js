@@ -15,14 +15,10 @@ Then('the more filters should be listed', async () => {
   await eventsPage.verifyMoreFiltersVisible();
 });
 
-When('the date from is picked from the {string}', async (string) => {
-  await eventsPage.pickDateFrom();
+When('the date from and till are picked as today', async () => {
+  await eventsPage.pickTodayDate();
 });
 
-When('the till date is picked from the {string}', async (string) => {
-  await eventsPage.pickDateTill();
-});
-
-Then('check all the listed cards date should be included these two dates range', async () => {
-  await eventsPage.checkListedEvents();
+Then("check all the listed cards should contain today's date", async () => {
+  await eventsPage.checkListedEventsForToday();
 });
