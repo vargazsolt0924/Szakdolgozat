@@ -4,11 +4,12 @@ class MainPage {
   constructor(page) {
     this.page = page;
     this.loginButton = page.locator('li.evnt-header-button.login');
-    this.emailField = page.locator('#username');
-    this.continueButton = page.locator('#kc-login-next');
-    this.passwordField = page.locator('#password');
-    this.verifyCheckbox = page.locator('#turnstileContainer input');
-    this.signInButton = page.locator('#kc-login');
+    this.emailField = page.locator('#userName');
+    this.continueButton = page.locator('.styles_defaultButton__1fEag.styles_primary__CzAMG.submitButton');
+    this.passwordField = page.locator('input[type="password"]');
+    this.signInButton = page.locator('.styles_defaultButton__1fEag.styles_primary__CzAMG.submitButton');
+    this.loader = page.locator('.epamLoader');
+    this.collectionButton = page.locator('.evnt-collections-button');
     this.profileDropdown = page.locator('#navbarDropdown');
     this.logoutButton = page.locator('a.dropdown-item.logout-icon');
     this.secondLogoutButton = page.locator('#kc-form-buttons');
@@ -46,6 +47,8 @@ class MainPage {
 
   async clickSignInButton() {
     await this.signInButton.click();
+    //await this.page.waitForSelector('.epamLoader', { state: 'hidden' });
+    // await this.page.waitForSelector(this.collectionButton, { state: 'visible' });
   }
 
   async clickProfileDropdown() {
